@@ -4,7 +4,7 @@ import type { Database } from "./types";
 
 /**
  * Service-role admin client — bypasses RLS.
- * Use ONLY in trusted server contexts (cron jobs, ingestion pipelines, webhooks).
+ * Use ONLY in trusted server contexts (ingestion pipelines, webhooks, server actions).
  * Never expose SUPABASE_SERVICE_ROLE_KEY to the browser.
  */
 export function createAdminClient() {

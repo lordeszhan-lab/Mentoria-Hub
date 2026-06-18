@@ -12,7 +12,6 @@ const serverSchema = z.object({
   EMAIL_FROM: z.string().email(),
   VAPID_PUBLIC_KEY: z.string().min(1),
   VAPID_PRIVATE_KEY: z.string().min(1),
-  CRON_SECRET: z.string().min(1),
 });
 
 const clientSchema = z.object({

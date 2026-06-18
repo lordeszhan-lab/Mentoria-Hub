@@ -12,8 +12,8 @@
  *
  * Note on Google Calendar refresh:
  *   Google syncs subscribed calendars roughly once every 12–24 hours.
- *   Urgent deadlines should also be surfaced via email notification
- *   (handled by the digest cron job) so users don't miss them.
+ *   Urgent deadlines should also be surfaced via in-app notifications
+ *   so users don't miss them.
  */
 
 const CRLF = "\r\n";

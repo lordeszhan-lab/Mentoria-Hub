@@ -17,9 +17,6 @@ export const GRADE_MAX = 11;
 /** LLM config */
 export const LLM_MODEL = "gpt-4o-mini";
 
-/** Maximum cron jobs (Vercel) — never exceed 2 */
-export const MAX_CRON_JOBS = 2;
-
 /** Category slugs */
 export const CATEGORIES = [
   "business",
