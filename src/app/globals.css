@@ -1,0 +1,263 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* class-based dark variant for next-themes */
+@custom-variant dark (&:is(.dark *));
+
+/* ── shadcn token → Tailwind utility mapping ── */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* ══════════════════════════════════════════════════════════
+   MENTORIA HUB — CANONICAL DESIGN TOKENS  (DESIGN_SYSTEM.md §10)
+   Names are fixed; values may be tuned.
+   ══════════════════════════════════════════════════════════ */
+@theme {
+  /* brand */
+  --color-brand:        #16A34A;
+  --color-brand-strong: #15803D;
+  --color-brand-soft:   #DCFCE7;
+  --color-brand-ring:   #86EFAC;
+
+  /* accents — Duolingo secondary set */
+  --color-accent-blue:      #1CB0F6;
+  --color-accent-deep-blue: #2B70C9;
+  --color-accent-yellow:    #FFC800;
+  --color-accent-orange:    #FF9600;
+  --color-accent-purple:    #CE82FF;
+  --color-accent-red:       #FF4B4B;
+  --color-accent-teal:      #14B8A6;
+
+  /* surfaces / neutrals (light defaults) */
+  --color-canvas:    #F6F8F7;
+  --color-surface:   #FFFFFF;
+  --color-surface-2: #F7F9F8;
+  --color-border:    #E8ECEA;
+  --color-fg:        #1A1A1A;
+  --color-fg-muted:  #6B7280;
+  --color-fg-faint:  #9CA3AF;
+
+  /* semantic states */
+  --color-success: #16A34A;
+  --color-warning: #FF9600;
+  --color-danger:  #FF4B4B;
+  --color-info:    #1CB0F6;
+
+  /* radius */
+  --radius-card: 1rem;
+  --radius-md:   0.75rem;
+  --radius-pill: 9999px;
+
+  /* shadows */
+  --shadow-card:       0 1px 2px rgb(16 24 20 / 0.04), 0 8px 24px rgb(16 24 20 / 0.06);
+  --shadow-card-hover: 0 2px 4px rgb(16 24 20 / 0.06), 0 14px 32px rgb(16 24 20 / 0.10);
+  --shadow-pop:        0 8px 30px rgb(16 24 20 / 0.12);
+
+  /* font */
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── shadcn base palette (light) — tuned to Mentoria's palette ── */
+/*
+ * IMPORTANT: --popover MUST remain a fully-opaque solid hex color.
+ * Any alpha/transparency here makes every shadcn Select/Popover/Dropdown
+ * panel see-through. Do NOT use rgb()/hsl() with an alpha channel here.
+ */
+:root {
+  --background: #F6F8F7;
+  --foreground: #1A1A1A;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  --popover: #FFFFFF;           /* solid white — must stay opaque */
+  --popover-foreground: #1A1A1A;
+  --primary: #16A34A;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F7F9F8;
+  --secondary-foreground: #1A1A1A;
+  --muted: #F7F9F8;
+  --muted-foreground: #6B7280;
+  --accent: #F7F9F8;
+  --accent-foreground: #1A1A1A;
+  --destructive: #FF4B4B;
+  --border: #E8ECEA;
+  --input: #E8ECEA;
+  --ring: #86EFAC;
+  --chart-1: #16A34A;
+  --chart-2: #1CB0F6;
+  --chart-3: #FFC800;
+  --chart-4: #FF9600;
+  --chart-5: #CE82FF;
+  --radius: 0.75rem;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1A1A1A;
+  --sidebar-primary: #16A34A;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F7F9F8;
+  --sidebar-accent-foreground: #1A1A1A;
+  --sidebar-border: #E8ECEA;
+  --sidebar-ring: #86EFAC;
+}
+
+/* ── dark mode overrides ── */
+.dark {
+  /* shadcn vars */
+  --background: #0B0F0E;
+  --foreground: #F3F5F4;
+  --card: #14201C;
+  --card-foreground: #F3F5F4;
+  --popover: #14201C;           /* solid dark surface — must stay opaque */
+  --popover-foreground: #F3F5F4;
+  --primary: #22C55E;
+  --primary-foreground: #0B0F0E;
+  --secondary: #1B2A25;
+  --secondary-foreground: #F3F5F4;
+  --muted: #1B2A25;
+  --muted-foreground: #9AA5A0;
+  --accent: #1B2A25;
+  --accent-foreground: #F3F5F4;
+  --destructive: #FF4B4B;
+  --border: #26352F;
+  --input: #26352F;
+  --ring: #22C55E;
+  --chart-1: #22C55E;
+  --chart-2: #1CB0F6;
+  --chart-3: #FFC800;
+  --chart-4: #FF9600;
+  --chart-5: #CE82FF;
+  --sidebar: #14201C;
+  --sidebar-foreground: #F3F5F4;
+  --sidebar-primary: #22C55E;
+  --sidebar-primary-foreground: #0B0F0E;
+  --sidebar-accent: #1B2A25;
+  --sidebar-accent-foreground: #F3F5F4;
+  --sidebar-border: #26352F;
+  --sidebar-ring: #22C55E;
+
+  /* Mentoria brand tokens (dark) */
+  --color-brand:        #22C55E;
+  --color-brand-strong: #16A34A;
+  --color-brand-soft:   rgb(20 53 36 / 0.28);
+  --color-canvas:       #0B0F0E;
+  --color-surface:      #14201C;
+  --color-surface-2:    #1B2A25;
+  --color-border:       #26352F;
+  --color-fg:           #F3F5F4;
+  --color-fg-muted:     #9AA5A0;
+  --color-fg-faint:     #6B7672;
+}
+
+/* ── Seobloom weight-shift hover utility ── */
+@layer utilities {
+  .weight-shift {
+    font-variation-settings: "wght" 700;
+    transition:
+      font-variation-settings 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      letter-spacing 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .weight-shift:hover {
+    font-variation-settings: "wght" 800;
+    letter-spacing: -0.01em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weight-shift {
+    transition: none;
+  }
+}
+
+/* ── Duolingo 3D press button ledge utilities ── */
+/*
+ * .btn-ledge-brand: solid green face + darker-green bottom ledge.
+ * Always readable (white text on #16A34A) — invisible-text bug is impossible
+ * because the fill is part of the class itself, not assumed from context.
+ */
+@layer components {
+  .btn-ledge-brand {
+    background-color: var(--color-brand);
+    color: #ffffff;
+    border-radius: 9999px;
+    box-shadow: 0 4px 0 var(--color-brand-strong);
+    transition: background-color 150ms ease, box-shadow 60ms ease, transform 60ms ease;
+  }
+  .btn-ledge-brand:hover {
+    background-color: var(--color-brand-strong);
+  }
+  .btn-ledge-brand:active {
+    box-shadow: 0 0 0 var(--color-brand-strong);
+    transform: translateY(4px);
+  }
+  .btn-ledge-brand:disabled,
+  .btn-ledge-brand[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .btn-ledge-neutral {
+    background-color: var(--color-surface);
+    color: var(--color-fg);
+    border-radius: 9999px;
+    box-shadow: 0 4px 0 var(--color-border);
+    transition: background-color 150ms ease, box-shadow 60ms ease, transform 60ms ease;
+  }
+  .btn-ledge-neutral:hover {
+    background-color: var(--color-surface-2);
+  }
+  .btn-ledge-neutral:active {
+    box-shadow: 0 0 0 var(--color-border);
+    transform: translateY(4px);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}

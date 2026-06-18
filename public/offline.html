@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offline — Mentoria Hub</title>
+  <meta name="theme-color" content="#16A34A" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #F6F8F7;
+      font-family: -apple-system, "Nunito", sans-serif;
+      color: #1A1A1A;
+      padding: 24px;
+      text-align: center;
+      gap: 0;
+    }
+    .icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1A1A1A;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 15px;
+      color: #6B7280;
+      max-width: 300px;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 24px;
+      height: 44px;
+      background: #16A34A;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn:hover { background: #15803D; }
+  </style>
+</head>
+<body>
+  <img src="/icon-192.png" alt="Mentoria Hub" class="icon" />
+  <h1>You're offline</h1>
+  <p>Check your internet connection and try again. Your progress is safely saved in the cloud.</p>
+  <a class="btn" href="/dashboard" onclick="location.reload(); return false;">Try again</a>
+</body>
+</html>
